@@ -44,7 +44,9 @@ def main():
         price = get_crypto_price_on_exchange(full_name, exchange)
 
         if price is not None:
-            print(f"{full_name.capitalize()} ({exchange.capitalize()}): ${price:.2f}")
+            # Format the price to display up to 8 decimal places
+            formatted_price = "{:.8f}".format(price)
+            print(f"{full_name.capitalize()} ({exchange.capitalize()}): ${formatted_price}")
         else:
             print(f"Could not retrieve price for {full_name.capitalize()} on {exchange.capitalize()}")
 
